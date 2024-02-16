@@ -1,0 +1,21 @@
+version: "3.8"
+name: "wask"
+
+services:
+  php:
+    image: php:8.3-fpm-alpine3.19
+    container_name: wask-php
+    stdin_open: true
+    tty: true
+    restart: always
+    volumes:
+      - ./php:/var/www/html:rw
+
+  node:
+    image: node:18-alpine3.18
+    container_name: wask-node
+    stdin_open: true
+    tty: true
+    restart: always
+    volumes:
+      - ./node:/app:rw
